@@ -1,25 +1,35 @@
-import logo from './logo.svg';
-import './App.css';
-
-function App() {
+import React from "react"
+import { Route, Switch } from "react-router-dom"
+import Home from "./Components/Home"
+import AvailableHospitals from "./Components/AvailableHospitals"
+import DonorDetails from "./Components/DonorDetails"
+import FindDonor from "./Components/FindDonor"
+import HospitalsDetails from "./Components/HospitalsDetails"
+import Login from "./Components/Login"
+import Register from "./Components/Register"
+import RegisterDonor from "./Components/RegisterDonor"
+import Dashboard from "./Components/Dashboard"
+import Nav from "./Components/Nav"
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <>
+      <Nav />
+      <Switch>
+        <Route exact path="/" component={Home} />
+        <Route exact path="/login" component={Login} />
+        <Route exact path="/register" component={Register} />
+        <Route exact path="/dashboard" component={Dashboard} />
+        <Route exact path="/register-donor" component={RegisterDonor} />
+        <Route exact path="/find-donor" component={FindDonor} />
+        <Route
+          exact
+          path="/available-hospitals"
+          component={AvailableHospitals}
+        />
+        <Route exact path="/hospitals-details" component={HospitalsDetails} />
+        <Route exact path="/donors-details" component={DonorDetails} />
+      </Switch>
+    </>
+  )
 }
-
-export default App;
+export default App
