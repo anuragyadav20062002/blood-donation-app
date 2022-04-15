@@ -10,6 +10,7 @@ import Register from "./Components/Register"
 import RegisterDonor from "./Components/RegisterDonor"
 import Dashboard from "./Components/Dashboard"
 import Nav from "./Components/Nav"
+import Error from "./Components/Error"
 const App = () => {
   return (
     <>
@@ -28,6 +29,7 @@ const App = () => {
         />
         <Route exact path="/hospitals-details" component={HospitalsDetails} />
         <Route exact path="/donors-details" component={DonorDetails} />
+        <Route component={Error} />
       </Switch>
     </>
   )
