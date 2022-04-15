@@ -11,6 +11,8 @@ import RegisterDonor from "./Components/RegisterDonor"
 import Dashboard from "./Components/Dashboard"
 import Nav from "./Components/Nav"
 import Error from "./Components/Error"
+import { initializeApp } from "firebase/app"
+import "./index.css"
 const App = () => {
   return (
     <>

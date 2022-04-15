@@ -27,6 +27,16 @@ const Nav = () => {
                   Home
                 </a>
               </li>
+              <li className="nav-item">
+                <a className="nav-link active" aria-current="page" href="#">
+                  Looking For Blood
+                </a>
+              </li>
+              <li className="nav-item">
+                <a className="nav-link active" aria-current="page" href="#">
+                  Want To Donate
+                </a>
+              </li>
             </ul>
           </div>
         </div>
