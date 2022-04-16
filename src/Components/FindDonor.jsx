@@ -12,7 +12,7 @@ const FindDonor = () => {
 
   const findDonor = () => {
     return (
-      <form action="submit">
+      <form>
         <input
           type="text"
           placeholder="Blood Group"
@@ -37,9 +37,11 @@ const FindDonor = () => {
           value={city}
         />
         <br />
-        <button onClick={handleClick} className="btn btn-outline-primary">
-          Submit
-        </button>
+        <a href="/dashboard">
+          <button onClick={handleClick} className="btn btn-outline-primary">
+            Submit
+          </button>
+        </a>
       </form>
     )
   }

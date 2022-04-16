@@ -1,6 +1,8 @@
 import React from "react"
+import { useSelector } from "react-redux"
 
 const Home = () => {
+  let { user } = useSelector((state) => ({ ...state }))
   return (
     <>
       <div class="home">
@@ -19,18 +21,22 @@ const Home = () => {
       </div>
       <div class="content display">
         <div class="box red">
-          <a href="/register-donor">
-            <button className="home-button btn btn-outline-secondary">
-              Donate
-            </button>
-          </a>
+          {user && (
+            <a href="/register-donor">
+              <button className="home-button btn btn-outline-danger">
+                Donate
+              </button>
+            </a>
+          )}
         </div>
         <div class="box green">
-          <a href="/find-donor">
-            <button className="home-button btn btn-outline-secondary">
-              Generate Query
-            </button>
-          </a>
+          {user && (
+            <a href="/find-donor">
+              <button className="home-button btn btn-outline-danger">
+                Generate Query
+              </button>
+            </a>
+          )}
         </div>
       </div>
     </>

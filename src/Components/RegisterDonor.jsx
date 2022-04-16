@@ -109,10 +109,10 @@ const RegisterDonor = () => {
 
   return (
     <>
-      <div className="find-donor">
-        <span>
+      <div className="donor-register">
+        <h2>
           <strong>Provide the following details</strong>
-        </span>
+        </h2>
         <br />
         <br />
         {registerdonor()}
