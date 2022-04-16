@@ -4,12 +4,13 @@ import { React, useState } from "react"
 import firebase from "firebase/compat/app"
 import "firebase/compat/auth"
 import "firebase/compat/firestore"
-import { useDispatch } from "react-redux"
+import { useDispatch, useSelector } from "react-redux"
 import { useHistory } from "react-router-dom"
 const Nav = () => {
   const [current, setCurrent] = useState("home")
   let history = useHistory()
   let dispatch = useDispatch()
+  let { user } = useSelector((state) => ({ ...state }))
 
   const logout = () => {
     firebase.auth().signOut()
@@ -24,7 +25,7 @@ const Nav = () => {
     <>
       <nav className="navbar navbar-expand-lg navbar-light bg-light">
         <div className="container-fluid">
-          <a className="navbar-brand" href="#">
+          <a className="navbar-brand" href="/">
             Blood Link
           </a>
           <button
@@ -41,35 +42,44 @@ const Nav = () => {
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
               <li className="nav-item">
-                <a className="nav-link active" aria-current="page" href="#">
+                <a className="nav-link active" aria-current="page" href="/">
                   Home
                 </a>
               </li>
-              <li className="nav-item">
-                <a className="nav-link active" aria-current="page" href="#">
-                  Username
-                </a>
-              </li>
-              <li className="nav-item">
-                <a
-                  className="nav-link active"
-                  aria-current="page"
-                  href="#"
-                  onClick={logout}
-                >
-                  Logout
-                </a>
-              </li>
-              {/* <li className="nav-item">
-                <a className="nav-link active" aria-current="page" href="#">
-                  Looking For Blood
-                </a>
-              </li>
-              <li className="nav-item">
-                <a className="nav-link active" aria-current="page" href="#">
-                  Want To Donate
-                </a>
-              </li> */}
+              {!user && (
+                <>
+                  <li className="nav-item">
+                    <a
+                      className="nav-link active"
+                      aria-current="page"
+                      href="/login"
+                    >
+                      Login
+                    </a>
+                  </li>
+                </>
+              )}
+
+              {user && (
+                <>
+                  <li className="nav-item">
+                    <a className="nav-link active" aria-current="page" href="#">
+                      {user.email && user.email.split("@")[0]}
+                    </a>
+                  </li>
+
+                  <li className="nav-item">
+                    <a
+                      className="nav-link active"
+                      aria-current="page"
+                      href="#"
+                      onClick={logout}
+                    >
+                      Logout
+                    </a>
+                  </li>
+                </>
+              )}
             </ul>
           </div>
         </div>

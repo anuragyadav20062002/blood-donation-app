@@ -16,7 +16,7 @@ const store = createStore(rootReducer, composeWithDevTools())
 const root = ReactDOM.createRoot(document.getElementById("root"))
 root.render(
   <Provider store={store}>
-    <BrowserRouter>
+    <BrowserRouter forceRefresh={true}>
       <App />
     </BrowserRouter>
   </Provider>

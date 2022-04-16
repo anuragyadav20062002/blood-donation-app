@@ -3,3 +3,55 @@
   width: 40%;
   padding: 100px;
 }
+.find-donor {
+  margin: auto;
+  width: 40%;
+  padding: 100px;
+}
+
+.home {
+  margin: auto;
+  width: 100%;
+  padding: 100px;
+}
+
+.display {
+  display: flex;
+}
+
+.content {
+  width: 100vw;
+  height: 87vh;
+  background-color: whitesmoke;
+}
+
+.box {
+  margin: 5%;
+  width: 40%;
+  height: 80%;
+}
+
+.red {
+  background: url(Capture.PNG);
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  background-color: black;
+}
+
+.green {
+  background: url(sec.PNG);
+  background-repeat: no-repeat;
+  background-size: auto;
+  background-size: auto;
+}
+
+.home-button {
+  position: relative;
+  top: 80%;
+  left: 65%;
+  padding: 10px 20px;
+  background-color: black;
+  color: white;
+  font-size: 25px;
+  cursor: pointer;
+}
