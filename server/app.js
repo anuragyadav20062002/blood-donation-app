@@ -10,23 +10,13 @@ require("dotenv").config()
 const app = express()
 app.use(require("./route/auth"))
 app.use(express.json())
+app.use(bodyParser.json()) // for parsing application/json
+app.use(bodyParser.urlencoded({ extended: true }))
 //db
 const User = require("./model/userSchema")
 const password = process.env.DBPASSWORD
 
-const DB =
-  "mongodb+srv://bloodlink:anurag123@cluster0.zhvhe.mongodb.net/bloodlink?retryWrites=true&w=majority"
-
-mongoose
-  .connect(DB, {
-    useNewUrlParser: true,
-  })
-  .then(() => {
-    console.log("Connection Successful")
-  })
-  .catch((err) => {
-    console.log(err, "Connection cant be made")
-  })
+require("./db/conn")
 app.use(morgan("dev"))
 app.use(bodyParser.json({ limit: "2mb" }))
 app.use(cors())

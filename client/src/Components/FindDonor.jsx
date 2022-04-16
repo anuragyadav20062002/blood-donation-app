@@ -28,6 +28,7 @@ const FindDonor = () => {
       <form>
         <input
           type="text"
+          name="name"
           placeholder="Name"
           className="form-control"
           onChange={handleInputs}
@@ -36,6 +37,7 @@ const FindDonor = () => {
         <br />
         <input
           type="text"
+          name="phone"
           placeholder="Phone Number"
           className="form-control"
           onChange={handleInputs}
@@ -44,6 +46,7 @@ const FindDonor = () => {
         <br />
         <input
           type="text"
+          name="group"
           placeholder="Blood Group"
           className="form-control"
           onChange={handleInputs}
@@ -52,6 +55,7 @@ const FindDonor = () => {
         <br />
         <input
           type="text"
+          name="state"
           placeholder="State"
           className="form-control"
           onChange={handleInputs}
@@ -60,6 +64,7 @@ const FindDonor = () => {
         <br />
         <input
           type="text"
+          name="city"
           placeholder="City"
           className="form-control"
           onChange={handleInputs}
