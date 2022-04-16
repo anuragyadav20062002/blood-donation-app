@@ -31,7 +31,7 @@ const Home = () => {
         </div>
         <div className="box green">
           {user && (
-            <a href="/find-donor">
+            <a href="/donor-find">
               <button className="home-button btn btn-outline-danger">
                 Generate Query
               </button>
