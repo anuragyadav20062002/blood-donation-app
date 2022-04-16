@@ -30,6 +30,26 @@ app.use(morgan("dev"))
 app.use(bodyParser.json({ limit: "2mb" }))
 app.use(cors())
 
+//gautam//
+
+// var MongoClient = require("mongodb").MongoClient
+// var url =
+//   "mongodb+srv://bloodlink:anurag123@cluster0.zhvhe.mongodb.net/bloodlink?retryWrites=true&w=majority"
+
+// MongoClient.connect(url, function (err, db) {
+//   if (err) throw err
+//   var dbo = db.db("mydb")
+//   dbo
+//     .collection("bloodlink")
+//     .find({})
+//     .toArray(function (err, result) {
+//       if (err) throw err
+//       console.log(result)
+//       db.close()
+//     })
+// })
+//
+
 //route
 
 app.get("/", (req, res) => {
