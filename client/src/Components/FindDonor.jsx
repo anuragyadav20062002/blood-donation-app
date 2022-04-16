@@ -6,11 +6,22 @@ const FindDonor = () => {
     e.preventDefault()
   }
 
-  const [group, setGroup] = useState("")
-  const [state, setState] = useState("")
-  const [city, setCity] = useState("")
-  const [name, setName] = useState("")
-  const [phone, setPhone] = useState("")
+  const [user, setUser] = useState({
+    name: "",
+    phone: "",
+    state: "",
+    group: "",
+    city: "",
+  })
+
+  let name, value
+
+  const handleInputs = (e) => {
+    console.log(e)
+    name = e.target.name
+    value = e.target.value
+    setUser({ ...user, [name]: value })
+  }
 
   const findDonor = () => {
     return (
@@ -19,40 +30,40 @@ const FindDonor = () => {
           type="text"
           placeholder="Name"
           className="form-control"
-          onChange={(e) => setName(e.target.value)}
-          value={name}
+          onChange={handleInputs}
+          value={user.name}
         />
         <br />
         <input
           type="text"
           placeholder="Phone Number"
           className="form-control"
-          onChange={(e) => setPhone(e.target.value)}
-          value={phone}
+          onChange={handleInputs}
+          value={user.phone}
         />
         <br />
         <input
           type="text"
           placeholder="Blood Group"
           className="form-control"
-          onChange={(e) => setGroup(e.target.value)}
-          value={group}
+          onChange={handleInputs}
+          value={user.group}
         />
         <br />
         <input
           type="text"
           placeholder="State"
           className="form-control"
-          onChange={(e) => setState(e.target.value)}
-          value={state}
+          onChange={handleInputs}
+          value={user.state}
         />
         <br />
         <input
           type="text"
           placeholder="City"
           className="form-control"
-          onChange={(e) => setCity(e.target.value)}
-          value={city}
+          onChange={handleInputs}
+          value={user.city}
         />
         <br />
         <a href="/dashboard">

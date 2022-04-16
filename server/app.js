@@ -1,5 +1,5 @@
 const express = require("express")
-const mongoose = require("mongoose")
+
 const morgan = require("morgan")
 const bodyParser = require("body-parser")
 const cors = require("cors")
@@ -8,9 +8,10 @@ require("dotenv").config()
 //app
 
 const app = express()
-
+app.use(require("./route/auth"))
+app.use(express.json())
 //db
-
+const User = require("./model/userSchema")
 const password = process.env.DBPASSWORD
 
 const DB =
@@ -30,25 +31,12 @@ app.use(morgan("dev"))
 app.use(bodyParser.json({ limit: "2mb" }))
 app.use(cors())
 
-//gautam//
+//middleware
 
-// var MongoClient = require("mongodb").MongoClient
-// var url =
-//   "mongodb+srv://bloodlink:anurag123@cluster0.zhvhe.mongodb.net/bloodlink?retryWrites=true&w=majority"
-
-// MongoClient.connect(url, function (err, db) {
-//   if (err) throw err
-//   var dbo = db.db("mydb")
-//   dbo
-//     .collection("bloodlink")
-//     .find({})
-//     .toArray(function (err, result) {
-//       if (err) throw err
-//       console.log(result)
-//       db.close()
-//     })
-// })
-//
+const middleware = (req, res, next) => {
+  console.log("my middleware")
+  next()
+}
 
 //route
 
@@ -56,6 +44,13 @@ app.get("/", (req, res) => {
   res.json({
     data: "hey you hit node API",
   })
+})
+
+app.get("/find-donor", middleware, (req, res) => {
+  res.send(`register here for finding donors`)
+})
+app.get("/register-donor", middleware, (req, res) => {
+  res.send(`register here as a donor`)
 })
 
 //listen
