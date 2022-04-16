@@ -1,13 +1,31 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import React from "react"
-
+import { React, useState } from "react"
+import firebase from "firebase/compat/app"
+import "firebase/compat/auth"
+import "firebase/compat/firestore"
+import { useDispatch } from "react-redux"
+import { useHistory } from "react-router-dom"
 const Nav = () => {
+  const [current, setCurrent] = useState("home")
+  let history = useHistory()
+  let dispatch = useDispatch()
+
+  const logout = () => {
+    firebase.auth().signOut()
+    dispatch({
+      type: "Logged_Out",
+      payload: null,
+    })
+    history.push("/login")
+  }
+
   return (
     <>
       <nav className="navbar navbar-expand-lg navbar-light bg-light">
         <div className="container-fluid">
           <a className="navbar-brand" href="#">
-            Navbar
+            Blood Link
           </a>
           <button
             className="navbar-toggler"
@@ -29,6 +47,21 @@ const Nav = () => {
               </li>
               <li className="nav-item">
                 <a className="nav-link active" aria-current="page" href="#">
+                  Username
+                </a>
+              </li>
+              <li className="nav-item">
+                <a
+                  className="nav-link active"
+                  aria-current="page"
+                  href="#"
+                  onClick={logout}
+                >
+                  Logout
+                </a>
+              </li>
+              {/* <li className="nav-item">
+                <a className="nav-link active" aria-current="page" href="#">
                   Looking For Blood
                 </a>
               </li>
@@ -36,7 +69,7 @@ const Nav = () => {
                 <a className="nav-link active" aria-current="page" href="#">
                   Want To Donate
                 </a>
-              </li>
+              </li> */}
             </ul>
           </div>
         </div>

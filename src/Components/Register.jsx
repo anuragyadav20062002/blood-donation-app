@@ -20,7 +20,7 @@ const Register = () => {
     )
 
     //save email in localstorage
-    window.localStorage.setItem("emialForRegistraion", email)
+    window.localStorage.setItem("emailForRegistration", email)
     //clear state
     setEmail("")
   }
@@ -37,7 +37,7 @@ const Register = () => {
           />
           <br />
           <button type="submit" className="btn btn-outline-primary">
-            Submit
+            Register
           </button>
         </form>
       </>
