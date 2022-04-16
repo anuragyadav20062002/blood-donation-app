@@ -9,7 +9,7 @@ router.get("/", (req, res) => {
   console.log("hi")
 })
 
-router.post("/find-donor", (req, res) => {
+router.post("/find-donors", (req, res) => {
   const { name, group, phone, state, city } = req.body
 
   if (!name || !phone || !group || !state || !city) {

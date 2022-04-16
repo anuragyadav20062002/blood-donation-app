@@ -36,7 +36,7 @@ app.get("/", (req, res) => {
   })
 })
 
-app.get("/find-donor", middleware, (req, res) => {
+app.get("/find-donors", middleware, (req, res) => {
   res.send(`register here for finding donors`)
 })
 app.get("/register-donor", middleware, (req, res) => {

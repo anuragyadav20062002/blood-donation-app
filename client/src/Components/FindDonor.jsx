@@ -1,9 +1,30 @@
 import React from "react"
 import { useState } from "react"
+import { useHistory } from "react-router-dom"
 
 const FindDonor = () => {
-  const handleClick = (e) => {
+  const history = useHistory()
+  const handleClick = async (e) => {
     e.preventDefault()
+
+    const { name, group, phone, state, city } = user
+
+    const res = await fetch("/find-donors", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ name, group, phone, state, city }),
+    })
+
+    const result = await res.json()
+
+    if (result.status === 422 || !result) {
+      window.alert("Failed Registration")
+    } else {
+      window.alert("Registered Successfully")
+      history.push("/")
+    }
   }
 
   const [user, setUser] = useState({
@@ -25,7 +46,7 @@ const FindDonor = () => {
 
   const findDonor = () => {
     return (
-      <form>
+      <form method="post">
         <input
           type="text"
           name="name"
