@@ -19,14 +19,18 @@ const Home = () => {
       </div>
       <div class="content display">
         <div class="box red">
-          <button className="home-button btn btn-outline-secondary">
-            Donate
-          </button>
+          <a href="/register-donor">
+            <button className="home-button btn btn-outline-secondary">
+              Donate
+            </button>
+          </a>
         </div>
         <div class="box green">
-          <button className="home-button btn btn-outline-secondary">
-            Generate Query
-          </button>
+          <a href="/find-donor">
+            <button className="home-button btn btn-outline-secondary">
+              Generate Query
+            </button>
+          </a>
         </div>
       </div>
     </>

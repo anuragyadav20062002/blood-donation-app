@@ -3,7 +3,7 @@ import { React, useEffect } from "react"
 import { Route, Switch } from "react-router-dom"
 import Home from "./Components/Home"
 import AvailableHospitals from "./Components/AvailableHospitals"
-import DonorDetails from "./Components/DonorDetails"
+
 import FindDonor from "./Components/FindDonor"
 import HospitalsDetails from "./Components/HospitalsDetails"
 import Login from "./Components/Login"
@@ -57,7 +57,7 @@ const App = () => {
           component={AvailableHospitals}
         />
         <Route exact path="/hospitals-details" component={HospitalsDetails} />
-        <Route exact path="/donors-details" component={DonorDetails} />
+
         <Route component={Error} />
       </Switch>
     </>

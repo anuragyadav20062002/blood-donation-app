@@ -7,7 +7,8 @@ const FindDonor = () => {
   }
 
   const [group, setGroup] = useState("")
-  const [location, setLocation] = useState("")
+  const [state, setState] = useState("")
+  const [city, setCity] = useState("")
 
   const findDonor = () => {
     return (
@@ -22,10 +23,18 @@ const FindDonor = () => {
         <br />
         <input
           type="text"
-          placeholder="Location"
+          placeholder="State"
           className="form-control"
-          onChange={(e) => setLocation(e.target.value)}
-          value={location}
+          onChange={(e) => setState(e.target.value)}
+          value={state}
+        />
+        <br />
+        <input
+          type="text"
+          placeholder="City"
+          className="form-control"
+          onChange={(e) => setCity(e.target.value)}
+          value={city}
         />
         <br />
         <button onClick={handleClick} className="btn btn-outline-primary">
@@ -38,7 +47,9 @@ const FindDonor = () => {
   return (
     <>
       <div className="find-donor">
-        Provide the following details
+        <span>
+          <strong>Provide the following details</strong>
+        </span>
         <br />
         <br />
         {findDonor()}
