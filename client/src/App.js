@@ -22,6 +22,7 @@ import RegisterComplete from "./Components/RegisterComplete"
 import { auth } from "./firebase"
 import { useDispatch } from "react-redux"
 import { async } from "@firebase/util"
+import Footer from "./Components/Footer"
 const App = () => {
   const dispatch = useDispatch()
 
@@ -64,6 +65,7 @@ const App = () => {
 
         <Route component={Error} />
       </Switch>
+      <Footer />
     </>
   )
 }
