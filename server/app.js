@@ -30,6 +30,10 @@ const middleware = (req, res, next) => {
 
 //route
 
+const dataroute = require("./route/data")
+
+app.use("/data", dataroute)
+
 app.get("/", (req, res) => {
   res.json({
     data: "hey you hit node API",
