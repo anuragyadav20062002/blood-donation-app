@@ -5,6 +5,7 @@ import axios from "axios"
 import firebase from "firebase/compat/app"
 import "firebase/compat/auth"
 import "firebase/compat/firestore"
+import { getAuth, RecaptchaVerifier } from "firebase/auth"
 const RegisterDonor = () => {
   const [users, setUsers] = useState([])
 
@@ -18,30 +19,6 @@ const RegisterDonor = () => {
         console.log(err)
       })
   })
-
-  const handeClick = (e) => {
-    e.preventDefault()
-    let recaptcha = new firebase.auth.RecaptchaVerifier("recaptcha")
-    let number = this.user.phone
-    console.log(number)
-    number = "+91" + number
-    firebase
-      .auth()
-      .signInWithPhoneNumber(number, recaptcha)
-      .then(function (e) {
-        let code = prompt("Enter the OTP", "")
-        if (code == null) return
-        e.confirm(code)
-          .then(function (result) {
-            console.log(result.user, "user")
-            document.querySelector("label").textContent =
-              "Blood Donated Successfully"
-          })
-          .catch((error) => {
-            console.log(error)
-          })
-      })
-  }
 
   return (
     <>
@@ -67,9 +44,9 @@ const RegisterDonor = () => {
                 </p>
                 <p>Contact No - {user.phone}</p>
                 <label></label>
-                <button className="btn btn-primary" onClick={handeClick}>
-                  Donate
-                </button>
+                <a href="/validate">
+                  <button className="btn btn-primary">Donate</button>
+                </a>
               </div>
               <br />
             </div>

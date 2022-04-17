@@ -5,6 +5,7 @@ import { Route, Switch } from "react-router-dom"
 import Home from "./Components/Home"
 import AvailableHospitals from "./Components/AvailableHospitals"
 import Bloodbank from "./Components/Bloodbank"
+import Validate from "./Components/Validate"
 import FindDonor from "./Components/FindDonor"
 import HospitalsDetails from "./Components/HospitalsDetails"
 import Login from "./Components/Login"
@@ -59,6 +60,7 @@ const App = () => {
         />
         <Route exact path="/hospitals-details" component={HospitalsDetails} />
         <Route exact path="/bloodbank" component={Bloodbank} />
+        <Route exact path="/validate" component={Validate} />
 
         <Route component={Error} />
       </Switch>
